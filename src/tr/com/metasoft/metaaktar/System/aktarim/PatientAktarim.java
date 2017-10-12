@@ -102,6 +102,7 @@ public class PatientAktarim implements Aktarim {
                     } catch (Exception e) {
                     }
                 }
+                int pagerStart = 0;
 
                 for (int i = 0; i < patientCount; i += pagerSize) {
                     while (pause) {
@@ -119,7 +120,7 @@ public class PatientAktarim implements Aktarim {
 
                     patients.removeAll(patients);
 
-                    ResultSet rs = DatabaseOperations.getPatientTable(tip, 0, pagerSize);//i, i + pagerSize
+                    ResultSet rs = DatabaseOperations.getPatientTable(tip, pagerStart, pagerStart + pagerSize);//i, i + pagerSize
                     //tablodaki her kayit icin nesne olustur hex degerini hesapla listeye ekle
                     while (rs.next()) {
                         try {
@@ -140,6 +141,14 @@ public class PatientAktarim implements Aktarim {
                     }
                     // Listeyi dolas dicomAttrs tablosuna dicomattrsPkStart dan baslayarak ekle ve degeri arttır.
                     // Sonra dicomAttrs'ın pk sını patient tablosundaki dicomAttrsFk ya yaz
+                    int debug = pagerStart;
+                    pagerStart += (int) (pagerSize - patients.size());
+                    if (debug != pagerStart) {
+                        System.out.println("patients: debugPagerStart:" + debug);
+                        System.out.println("patients: PagerStart:" + pagerStart);
+                        System.out.println("patients: getTable(from,to):" + pagerStart + "," + (pagerStart + pagerSize));
+
+                    }
                     for (Patient patient : patients) {
                         try {
                             DatabaseOperations.insertAttributeHexBlob(dicomattrsPkStart, patient.getAttrsBlob());
@@ -174,6 +183,11 @@ public class PatientAktarim implements Aktarim {
         }
     }
 
+    public boolean isPaused() {
+        return pause;
+    }
+    
+    
     public static void main(String[] args) throws Exception {
         DatabaseOperations.connect("192.168.12.132", "1433", "PACSDB1", "sa", "meta26.soft");
         System.out.println();

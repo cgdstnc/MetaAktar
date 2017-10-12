@@ -82,7 +82,7 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jtfDbUser" max="32767" attributes="0"/>
+                                  <Component id="jtfDbUser" pref="47" max="32767" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
@@ -142,7 +142,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jtfSunucuIp">
           <Properties>
-            <Property name="text" type="java.lang.String" value="192.168.12.132"/>
+            <Property name="text" type="java.lang.String" value="10.26.96.5"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
@@ -172,7 +172,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jtfDbPass">
           <Properties>
-            <Property name="text" type="java.lang.String" value="meta26.soft"/>
+            <Property name="text" type="java.lang.String" value="mtsft"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
@@ -182,7 +182,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jtfBaseFilePath">
           <Properties>
-            <Property name="text" type="java.lang.String" value="\u005c\u005c192.168.12.132\u005cMetapacsStorage\u005cServerStudies\u005c" containsInvalidXMLChars="true"/>
+            <Property name="text" type="java.lang.String" value="\u005c\u005c10.26.96.5\u005cMetapacsStorage\u005cServerStudies\u005c" containsInvalidXMLChars="true"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="jbAyar1Kaydet">
@@ -200,7 +200,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jtfDbName">
           <Properties>
-            <Property name="text" type="java.lang.String" value="PACSDB1"/>
+            <Property name="text" type="java.lang.String" value="PACSDB2"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -407,7 +407,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jtfPatientPagerSize">
           <Properties>
-            <Property name="text" type="java.lang.String" value="100"/>
+            <Property name="text" type="java.lang.String" value="1000"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel13">
@@ -417,7 +417,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jtfStudyPagerSize">
           <Properties>
-            <Property name="text" type="java.lang.String" value="100"/>
+            <Property name="text" type="java.lang.String" value="1000"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel14">
@@ -427,7 +427,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jtfSeriPagerSize">
           <Properties>
-            <Property name="text" type="java.lang.String" value="100"/>
+            <Property name="text" type="java.lang.String" value="1000"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel15">
@@ -437,7 +437,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jtfInstancePagerSize">
           <Properties>
-            <Property name="text" type="java.lang.String" value="50"/>
+            <Property name="text" type="java.lang.String" value="500"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JCheckBox" name="jcbPatientOverwrite">
@@ -539,19 +539,6 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="jcbPatientPause" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jcbStudyPause" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jcbSeriPause" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jcbInstancePause" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="jbPauseOrCont" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jbConsole" min="-2" pref="116" max="-2" attributes="0"/>
-                      </Group>
                       <Component id="jPanel6" max="32767" attributes="0"/>
                       <Component id="jPanel7" alignment="0" max="32767" attributes="0"/>
                       <Component id="jPanel8" alignment="0" max="32767" attributes="0"/>
@@ -564,15 +551,6 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jbConsole" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jbPauseOrCont" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jcbPatientPause" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jcbStudyPause" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jcbSeriPause" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jcbInstancePause" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jPanel7" min="-2" max="-2" attributes="0"/>
@@ -586,11 +564,6 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="jbConsole">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Console"/>
-          </Properties>
-        </Component>
         <Container class="javax.swing.JPanel" name="jPanel6">
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -603,10 +576,12 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jpbPatient" max="32767" attributes="0"/>
+                  <Component id="jpbPatient" pref="481" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jbPatientDuraklatDevamEttir" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jlPatientCurrent" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel35" min="-2" max="-2" attributes="0"/>
@@ -625,8 +600,9 @@
                               <Component id="jlPatientTotal" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                          <Component id="jbPatientDuraklatDevamEttir" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="jpbPatient" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   </Group>
@@ -656,6 +632,14 @@
                 <Property name="text" type="java.lang.String" value="0"/>
               </Properties>
             </Component>
+            <Component class="javax.swing.JButton" name="jbPatientDuraklatDevamEttir">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Duraklat"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbPatientDuraklatDevamEttirActionPerformed"/>
+              </Events>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel7">
@@ -674,6 +658,8 @@
                   <Group type="102" attributes="0">
                       <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jbStudyDuraklatDevamEttir" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jlStudyCurrent" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
@@ -685,13 +671,16 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jlStudyCurrent" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel21" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jlStudyTotal" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jlStudyCurrent" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel21" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jlStudyTotal" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="jbStudyDuraklatDevamEttir" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                       <Component id="jpbStudy" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   </Group>
@@ -724,6 +713,14 @@
                 <Property name="text" type="java.lang.String" value="0"/>
               </Properties>
             </Component>
+            <Component class="javax.swing.JButton" name="jbStudyDuraklatDevamEttir">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Duraklat"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbStudyDuraklatDevamEttirActionPerformed"/>
+              </Events>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel8">
@@ -742,6 +739,8 @@
                   <Group type="102" attributes="0">
                       <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jbSeriDuraklatDevamEttir" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jlSeriCurrent" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel25" min="-2" max="-2" attributes="0"/>
@@ -753,13 +752,16 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel23" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jlSeriCurrent" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel25" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jlSeriTotal" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel23" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jlSeriCurrent" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel25" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jlSeriTotal" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="jbSeriDuraklatDevamEttir" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="jpbSeri" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   </Group>
@@ -792,6 +794,14 @@
                 <Property name="text" type="java.lang.String" value="0"/>
               </Properties>
             </Component>
+            <Component class="javax.swing.JButton" name="jbSeriDuraklatDevamEttir">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Duraklat"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbSeriDuraklatDevamEttirActionPerformed"/>
+              </Events>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel9">
@@ -810,6 +820,8 @@
                   <Group type="102" attributes="0">
                       <Component id="jLabel27" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jbInstanceDuraklatDevamEttir" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jlInstanceCurrent" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel29" min="-2" max="-2" attributes="0"/>
@@ -821,13 +833,16 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel27" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jlInstanceCurrent" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel29" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jlInstanceTotal" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel27" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jlInstanceCurrent" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel29" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jlInstanceTotal" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="jbInstanceDuraklatDevamEttir" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="jpbInstance" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   </Group>
@@ -860,36 +875,16 @@
                 <Property name="text" type="java.lang.String" value="0"/>
               </Properties>
             </Component>
+            <Component class="javax.swing.JButton" name="jbInstanceDuraklatDevamEttir">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Duraklat"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbInstanceDuraklatDevamEttirActionPerformed"/>
+              </Events>
+            </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="jbPauseOrCont">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Duraklat/Devam Et"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbPauseOrContActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="jcbPatientPause">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Patient"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="jcbStudyPause">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Study"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="jcbSeriPause">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Seri"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="jcbInstancePause">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Instance"/>
-          </Properties>
-        </Component>
       </SubComponents>
     </Container>
   </SubComponents>

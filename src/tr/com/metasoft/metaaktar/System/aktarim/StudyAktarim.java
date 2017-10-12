@@ -86,6 +86,10 @@ public class StudyAktarim implements Aktarim {
         pause = false;
     }
 
+    public boolean isPaused() {
+        return pause;
+    }
+
     private class Aktarici implements Runnable {
 
         @Override
@@ -101,6 +105,8 @@ public class StudyAktarim implements Aktarim {
                     } catch (Exception e) {
                     }
                 }
+
+                int pagerStart = 0;
 
                 for (int i = 0; i < studyCount; i += pagerSize) {
                     while (pause) {
@@ -118,7 +124,7 @@ public class StudyAktarim implements Aktarim {
 
                     studies.removeAll(studies);
 
-                    ResultSet rs = DatabaseOperations.getStudyTable(tip, 0, pagerSize);
+                    ResultSet rs = DatabaseOperations.getStudyTable(tip, pagerStart, pagerStart + pagerSize);
                     //tablodaki her kayit icin nesne olustur hex degerini hesapla listeye ekle
                     while (rs.next()) {
                         try {
@@ -136,6 +142,15 @@ public class StudyAktarim implements Aktarim {
                             } catch (Exception e1) {
                             }
                         }
+                    }
+                    int debug = pagerStart;
+                    pagerStart += (int) (pagerSize - studies.size());
+
+                    if (debug != pagerStart) {
+                        System.out.println("series: debugPagerStart:" + debug);
+                        System.out.println("series: PagerStart:" + pagerStart);
+                        System.out.println("series: getTable(from,to):" + pagerStart + "," + (pagerStart + pagerSize));
+
                     }
                     // Listeyi dolas dicomAttrs tablosuna dicomattrsPkStart dan baslayarak ekle ve degeri arttır.
                     // Sonra dicomAttrs'ın pk sını patient tablosundaki dicomAttrsFk ya yaz

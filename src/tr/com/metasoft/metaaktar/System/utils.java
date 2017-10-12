@@ -133,7 +133,12 @@ public class utils {
         instanceAttrs.setString(Tag.Rows, VR.US, attrs.getString(Tag.Rows));
         instanceAttrs.setString(Tag.Columns, VR.US, attrs.getString(Tag.Columns));
         instanceAttrs.setString(Tag.BitsAllocated, VR.US, attrs.getString(Tag.BitsAllocated));
-        
+        try {
+            
+            dis.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return instanceAttrs;
     }
 

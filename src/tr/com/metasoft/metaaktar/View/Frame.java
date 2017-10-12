@@ -85,36 +85,34 @@ public class Frame extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jtaBaslamadanOncekiUyarilar = new javax.swing.JTextArea();
         jpProgess = new javax.swing.JPanel();
-        jbConsole = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jpbPatient = new javax.swing.JProgressBar();
         jLabel12 = new javax.swing.JLabel();
         jlPatientCurrent = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
         jlPatientTotal = new javax.swing.JLabel();
+        jbPatientDuraklatDevamEttir = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         jpbStudy = new javax.swing.JProgressBar();
         jLabel19 = new javax.swing.JLabel();
         jlStudyCurrent = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jlStudyTotal = new javax.swing.JLabel();
+        jbStudyDuraklatDevamEttir = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         jpbSeri = new javax.swing.JProgressBar();
         jLabel23 = new javax.swing.JLabel();
         jlSeriCurrent = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         jlSeriTotal = new javax.swing.JLabel();
+        jbSeriDuraklatDevamEttir = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
         jpbInstance = new javax.swing.JProgressBar();
         jLabel27 = new javax.swing.JLabel();
         jlInstanceCurrent = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         jlInstanceTotal = new javax.swing.JLabel();
-        jbPauseOrCont = new javax.swing.JButton();
-        jcbPatientPause = new javax.swing.JCheckBox();
-        jcbStudyPause = new javax.swing.JCheckBox();
-        jcbSeriPause = new javax.swing.JCheckBox();
-        jcbInstancePause = new javax.swing.JCheckBox();
+        jbInstanceDuraklatDevamEttir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -122,7 +120,7 @@ public class Frame extends javax.swing.JFrame {
 
         jLabel1.setText("Sunucu IP");
 
-        jtfSunucuIp.setText("192.168.12.132");
+        jtfSunucuIp.setText("10.26.96.5");
 
         jLabel2.setText("DB Port:");
 
@@ -134,11 +132,11 @@ public class Frame extends javax.swing.JFrame {
 
         jLabel4.setText("Pass:");
 
-        jtfDbPass.setText("meta26.soft");
+        jtfDbPass.setText("mtsft");
 
         jLabel5.setText("BaseFilePath");
 
-        jtfBaseFilePath.setText("\\\\192.168.12.132\\MetapacsStorage\\ServerStudies\\");
+        jtfBaseFilePath.setText("\\\\10.26.96.5\\MetapacsStorage\\ServerStudies\\");
 
             jbAyar1Kaydet.setText("Kaydet");
             jbAyar1Kaydet.addActionListener(new java.awt.event.ActionListener() {
@@ -149,7 +147,7 @@ public class Frame extends javax.swing.JFrame {
 
             jLabel16.setText("Db Name");
 
-            jtfDbName.setText("PACSDB1");
+            jtfDbName.setText("PACSDB2");
 
             javax.swing.GroupLayout jpAyar1Layout = new javax.swing.GroupLayout(jpAyar1);
             jpAyar1.setLayout(jpAyar1Layout);
@@ -175,7 +173,7 @@ public class Frame extends javax.swing.JFrame {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(jLabel3)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jtfDbUser)
+                                    .addComponent(jtfDbUser, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(jLabel4)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -233,19 +231,19 @@ public class Frame extends javax.swing.JFrame {
 
             jLabel6.setText("Pager Size:");
 
-            jtfPatientPagerSize.setText("100");
+            jtfPatientPagerSize.setText("1000");
 
             jLabel13.setText("Pager Size:");
 
-            jtfStudyPagerSize.setText("100");
+            jtfStudyPagerSize.setText("1000");
 
             jLabel14.setText("Pager Size:");
 
-            jtfSeriPagerSize.setText("100");
+            jtfSeriPagerSize.setText("1000");
 
             jLabel15.setText("Pager Size:");
 
-            jtfInstancePagerSize.setText("50");
+            jtfInstancePagerSize.setText("500");
 
             jcbPatientOverwrite.setText("Overwrite");
 
@@ -405,8 +403,6 @@ public class Frame extends javax.swing.JFrame {
 
             jpProgess.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-            jbConsole.setText("Console");
-
             jPanel6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
             jLabel12.setText("Patient");
@@ -417,14 +413,23 @@ public class Frame extends javax.swing.JFrame {
 
             jlPatientTotal.setText("0");
 
+            jbPatientDuraklatDevamEttir.setText("Duraklat");
+            jbPatientDuraklatDevamEttir.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    jbPatientDuraklatDevamEttirActionPerformed(evt);
+                }
+            });
+
             javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
             jPanel6.setLayout(jPanel6Layout);
             jPanel6Layout.setHorizontalGroup(
                 jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jpbPatient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jpbPatient, javax.swing.GroupLayout.DEFAULT_SIZE, 481, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createSequentialGroup()
                     .addComponent(jLabel12)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jbPatientDuraklatDevamEttir)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                     .addComponent(jlPatientCurrent)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(jLabel35)
@@ -439,8 +444,9 @@ public class Frame extends javax.swing.JFrame {
                             .addComponent(jlPatientCurrent)
                             .addComponent(jLabel35)
                             .addComponent(jlPatientTotal))
-                        .addComponent(jLabel12))
-                    .addGap(5, 5, 5)
+                        .addComponent(jLabel12)
+                        .addComponent(jbPatientDuraklatDevamEttir))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(jpbPatient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, 0))
             );
@@ -457,6 +463,13 @@ public class Frame extends javax.swing.JFrame {
 
             jlStudyTotal.setText("0");
 
+            jbStudyDuraklatDevamEttir.setText("Duraklat");
+            jbStudyDuraklatDevamEttir.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    jbStudyDuraklatDevamEttirActionPerformed(evt);
+                }
+            });
+
             javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
             jPanel7.setLayout(jPanel7Layout);
             jPanel7Layout.setHorizontalGroup(
@@ -465,6 +478,8 @@ public class Frame extends javax.swing.JFrame {
                 .addGroup(jPanel7Layout.createSequentialGroup()
                     .addComponent(jLabel19)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jbStudyDuraklatDevamEttir)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                     .addComponent(jlStudyCurrent)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(jLabel21)
@@ -474,12 +489,14 @@ public class Frame extends javax.swing.JFrame {
             jPanel7Layout.setVerticalGroup(
                 jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel7Layout.createSequentialGroup()
-                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel19)
-                        .addComponent(jlStudyCurrent)
-                        .addComponent(jLabel21)
-                        .addComponent(jlStudyTotal))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel19)
+                            .addComponent(jlStudyCurrent)
+                            .addComponent(jLabel21)
+                            .addComponent(jlStudyTotal))
+                        .addComponent(jbStudyDuraklatDevamEttir))
+                    .addGap(5, 5, 5)
                     .addComponent(jpbStudy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, 0))
             );
@@ -496,6 +513,13 @@ public class Frame extends javax.swing.JFrame {
 
             jlSeriTotal.setText("0");
 
+            jbSeriDuraklatDevamEttir.setText("Duraklat");
+            jbSeriDuraklatDevamEttir.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    jbSeriDuraklatDevamEttirActionPerformed(evt);
+                }
+            });
+
             javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
             jPanel8.setLayout(jPanel8Layout);
             jPanel8Layout.setHorizontalGroup(
@@ -504,6 +528,8 @@ public class Frame extends javax.swing.JFrame {
                 .addGroup(jPanel8Layout.createSequentialGroup()
                     .addComponent(jLabel23)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jbSeriDuraklatDevamEttir)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                     .addComponent(jlSeriCurrent)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(jLabel25)
@@ -513,12 +539,14 @@ public class Frame extends javax.swing.JFrame {
             jPanel8Layout.setVerticalGroup(
                 jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel8Layout.createSequentialGroup()
-                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel23)
-                        .addComponent(jlSeriCurrent)
-                        .addComponent(jLabel25)
-                        .addComponent(jlSeriTotal))
-                    .addGap(5, 5, 5)
+                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel23)
+                            .addComponent(jlSeriCurrent)
+                            .addComponent(jLabel25)
+                            .addComponent(jlSeriTotal))
+                        .addComponent(jbSeriDuraklatDevamEttir))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(jpbSeri, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, 0))
             );
@@ -535,6 +563,13 @@ public class Frame extends javax.swing.JFrame {
 
             jlInstanceTotal.setText("0");
 
+            jbInstanceDuraklatDevamEttir.setText("Duraklat");
+            jbInstanceDuraklatDevamEttir.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    jbInstanceDuraklatDevamEttirActionPerformed(evt);
+                }
+            });
+
             javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
             jPanel9.setLayout(jPanel9Layout);
             jPanel9Layout.setHorizontalGroup(
@@ -543,6 +578,8 @@ public class Frame extends javax.swing.JFrame {
                 .addGroup(jPanel9Layout.createSequentialGroup()
                     .addComponent(jLabel27)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jbInstanceDuraklatDevamEttir)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                     .addComponent(jlInstanceCurrent)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(jLabel29)
@@ -552,30 +589,17 @@ public class Frame extends javax.swing.JFrame {
             jPanel9Layout.setVerticalGroup(
                 jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel9Layout.createSequentialGroup()
-                    .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel27)
-                        .addComponent(jlInstanceCurrent)
-                        .addComponent(jLabel29)
-                        .addComponent(jlInstanceTotal))
-                    .addGap(5, 5, 5)
+                    .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel27)
+                            .addComponent(jlInstanceCurrent)
+                            .addComponent(jLabel29)
+                            .addComponent(jlInstanceTotal))
+                        .addComponent(jbInstanceDuraklatDevamEttir))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(jpbInstance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, 0))
             );
-
-            jbPauseOrCont.setText("Duraklat/Devam Et");
-            jbPauseOrCont.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    jbPauseOrContActionPerformed(evt);
-                }
-            });
-
-            jcbPatientPause.setText("Patient");
-
-            jcbStudyPause.setText("Study");
-
-            jcbSeriPause.setText("Seri");
-
-            jcbInstancePause.setText("Instance");
 
             javax.swing.GroupLayout jpProgessLayout = new javax.swing.GroupLayout(jpProgess);
             jpProgess.setLayout(jpProgessLayout);
@@ -584,18 +608,6 @@ public class Frame extends javax.swing.JFrame {
                 .addGroup(jpProgessLayout.createSequentialGroup()
                     .addContainerGap()
                     .addGroup(jpProgessLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jpProgessLayout.createSequentialGroup()
-                            .addComponent(jcbPatientPause)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jcbStudyPause)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jcbSeriPause)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jcbInstancePause)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jbPauseOrCont)
-                            .addGap(18, 18, 18)
-                            .addComponent(jbConsole, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -605,14 +617,6 @@ public class Frame extends javax.swing.JFrame {
                 jpProgessLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jpProgessLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addGroup(jpProgessLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jbConsole)
-                        .addComponent(jbPauseOrCont)
-                        .addComponent(jcbPatientPause)
-                        .addComponent(jcbStudyPause)
-                        .addComponent(jcbSeriPause)
-                        .addComponent(jcbInstancePause))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                     .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -763,9 +767,53 @@ public class Frame extends javax.swing.JFrame {
         jtfDicomAttrsPkStart.setEnabled(!jtfDicomAttrsPkStart.isEnabled());
     }//GEN-LAST:event_jcbDicomAttrsPkUseMaxActionPerformed
 
-    private void jbPauseOrContActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbPauseOrContActionPerformed
-//adsh6775 
-    }//GEN-LAST:event_jbPauseOrContActionPerformed
+    private void jbPatientDuraklatDevamEttirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbPatientDuraklatDevamEttirActionPerformed
+        if (patientAktarim != null) {
+            if (!patientAktarim.isPaused()) {
+                jbPatientDuraklatDevamEttir.setText("Devam Ettir");
+                patientAktarim.duraklat();
+            } else {
+                jbPatientDuraklatDevamEttir.setText("Duraklat");
+                patientAktarim.devamEttir();
+            }
+        }
+    }//GEN-LAST:event_jbPatientDuraklatDevamEttirActionPerformed
+
+    private void jbStudyDuraklatDevamEttirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbStudyDuraklatDevamEttirActionPerformed
+        if (studyAktarim != null) {
+            if (!studyAktarim.isPaused()) {
+                jbStudyDuraklatDevamEttir.setText("Devam Ettir");
+                studyAktarim.duraklat();
+            } else {
+                jbStudyDuraklatDevamEttir.setText("Duraklat");
+                studyAktarim.devamEttir();
+            }
+        }
+    }//GEN-LAST:event_jbStudyDuraklatDevamEttirActionPerformed
+
+    private void jbSeriDuraklatDevamEttirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSeriDuraklatDevamEttirActionPerformed
+        if (seriesAktarim != null) {
+            if (!seriesAktarim.isPaused()) {
+                jbSeriDuraklatDevamEttir.setText("Devam Ettir");
+                seriesAktarim.duraklat();
+            } else {
+                jbSeriDuraklatDevamEttir.setText("Duraklat");
+                seriesAktarim.devamEttir();
+            }
+        }
+    }//GEN-LAST:event_jbSeriDuraklatDevamEttirActionPerformed
+
+    private void jbInstanceDuraklatDevamEttirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbInstanceDuraklatDevamEttirActionPerformed
+        if (instanceAktarim != null) {
+            if (!instanceAktarim.isPaused()) {
+                jbInstanceDuraklatDevamEttir.setText("Devam Ettir");
+                instanceAktarim.duraklat();
+            } else {
+                jbInstanceDuraklatDevamEttir.setText("Duraklat");
+                instanceAktarim.devamEttir();
+            }
+        }
+    }//GEN-LAST:event_jbInstanceDuraklatDevamEttirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -830,21 +878,19 @@ public class Frame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbAyar1Kaydet;
     private javax.swing.JButton jbAyar2KaydetVeBaslat;
-    private javax.swing.JButton jbConsole;
-    private javax.swing.JButton jbPauseOrCont;
+    private javax.swing.JButton jbInstanceDuraklatDevamEttir;
+    private javax.swing.JButton jbPatientDuraklatDevamEttir;
+    private javax.swing.JButton jbSeriDuraklatDevamEttir;
+    private javax.swing.JButton jbStudyDuraklatDevamEttir;
     private javax.swing.JCheckBox jcbDicomAttrsPkUseMax;
     private javax.swing.JCheckBox jcbInstance;
     private javax.swing.JCheckBox jcbInstanceOverwrite;
-    private javax.swing.JCheckBox jcbInstancePause;
     private javax.swing.JCheckBox jcbPatient;
     private javax.swing.JCheckBox jcbPatientOverwrite;
-    private javax.swing.JCheckBox jcbPatientPause;
     private javax.swing.JCheckBox jcbSeri;
     private javax.swing.JCheckBox jcbSeriOverwrite;
-    private javax.swing.JCheckBox jcbSeriPause;
     private javax.swing.JCheckBox jcbStudy;
     private javax.swing.JCheckBox jcbStudyOverwrite;
-    private javax.swing.JCheckBox jcbStudyPause;
     private javax.swing.JLabel jlInstanceCurrent;
     private javax.swing.JLabel jlInstanceDurum;
     private javax.swing.JLabel jlInstanceTotal;

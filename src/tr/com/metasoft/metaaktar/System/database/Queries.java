@@ -289,6 +289,6 @@ public class Queries {
     }
     
     public static void main(String[] args) {
-        System.out.println(getInstanceAktarilmamisTabloQuery(0,10000));
+        System.out.println(getStudyAktarilmamisCountQuery());
     }
 }

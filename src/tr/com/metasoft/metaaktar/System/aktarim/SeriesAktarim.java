@@ -27,38 +27,38 @@ import tr.com.metasoft.metaaktar.System.utils;
  * @author Administrator
  */
 public class SeriesAktarim implements Aktarim {
-    
+
     private publicEnum.KayitTipi tip;
     private long dicomattrsPkStart;
     private long pagerSize;
-    
+
     private JProgressBar progessbar;
     private JLabel jlCurrent;
     private JLabel jlTotal;
     private boolean useProgress = false;
-    
+
     private String logFileName;
     private DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd_HH_mm");
-    
+
     private Long startTime;
     private boolean pause = false;
     private Thread thread;
-    
+
     public SeriesAktarim(publicEnum.KayitTipi tip, long dicomattrsPkStart, long pagerSize) {
         this.tip = tip;
         this.dicomattrsPkStart = dicomattrsPkStart;
         this.pagerSize = pagerSize;
-        
+
         logFileName = dateFormat.format(new Date()) + "_SeriesAktarim.log";
     }
-    
+
     public void setProgressObjects(JProgressBar progessbar, JLabel jlCurrent, JLabel jlTotal) {
         this.progessbar = progessbar;
         this.jlCurrent = jlCurrent;
         this.jlTotal = jlTotal;
         useProgress = true;
     }
-    
+
     @Override
     public void aktar() {
         if (startTime != null) {
@@ -66,28 +66,32 @@ public class SeriesAktarim implements Aktarim {
             return;
         }
         startTime = System.currentTimeMillis();
-        
+
         try {
             thread = new Thread(new Aktarici());
             thread.start();
-            
+
         } catch (Exception ex) {
             Logger.getLogger(SeriesAktarim.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     @Override
     public void duraklat() {
         pause = true;
     }
-    
+
     @Override
     public void devamEttir() {
         pause = false;
     }
-    
+
+    public boolean isPaused() {
+        return pause;
+    }
+
     private class Aktarici implements Runnable {
-        
+
         @Override
         public void run() {
             try {
@@ -101,7 +105,9 @@ public class SeriesAktarim implements Aktarim {
                     } catch (Exception e) {
                     }
                 }
-                
+
+                int pagerStart = 0;
+
                 for (int i = 0; i < seriesCount; i += pagerSize) {
                     while (pause) {
                         Thread.sleep(1000);
@@ -110,15 +116,15 @@ public class SeriesAktarim implements Aktarim {
                         try {
                             progessbar.setValue((int) (i + pagerSize));
                             int tmp = (int) (((i + pagerSize) <= seriesCount) ? (i + pagerSize) : seriesCount);
-                            
+
                             jlCurrent.setText(tmp + "");//pagerSize
                         } catch (Exception e) {
                         }
                     }
-                    
+
                     series.removeAll(series);
-                    
-                    ResultSet rs = DatabaseOperations.getSeriesTable(tip, 0, pagerSize);
+
+                    ResultSet rs = DatabaseOperations.getSeriesTable(tip, pagerStart, pagerStart + pagerSize);
                     //tablodaki her kayit icin nesne olustur hex degerini hesapla listeye ekle
                     while (rs.next()) {
                         try {
@@ -136,6 +142,14 @@ public class SeriesAktarim implements Aktarim {
                             } catch (Exception e1) {
                             }
                         }
+                    }
+                    int debug = pagerStart;
+                    pagerStart += (int) (pagerSize - series.size());
+                    if (debug != pagerStart) {
+                        System.out.println("series: debugPagerStart:" + debug);
+                        System.out.println("series: PagerStart:" + pagerStart);
+                        System.out.println("series: getTable(from,to):" + pagerStart + "," + (pagerStart + pagerSize));
+
                     }
                     // Listeyi dolas dicomAttrs tablosuna dicomattrsPkStart dan baslayarak ekle ve degeri arttır.
                     // Sonra dicomAttrs'ın pk sını patient tablosundaki dicomAttrsFk ya yaz
@@ -157,12 +171,12 @@ public class SeriesAktarim implements Aktarim {
                             }
                         }
                     }
-                    
+
                 }
                 utils.appendLog(logFileName + "_TIME", "StartTime " + startTime);
                 utils.appendLog(logFileName + "_TIME", "FinishTime " + System.currentTimeMillis());
                 utils.appendLog(logFileName + "_TIME", "Total " + utils.convertMilisecondToTime(System.currentTimeMillis() - startTime));
-                
+
             } catch (SQLException ex) {
                 Logger.getLogger(PatientAktarim.class.getName()).log(Level.SEVERE, null, ex);
             } catch (InterruptedException ex) {

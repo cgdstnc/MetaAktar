@@ -91,6 +91,10 @@ public class InstanceAktarim implements Aktarim {
         pause = false;
     }
 
+    public boolean isPaused() {
+        return pause;
+    }
+
     private class Aktarici implements Runnable {
 
         @Override
@@ -106,6 +110,7 @@ public class InstanceAktarim implements Aktarim {
                     } catch (Exception e) {
                     }
                 }
+                int pagerStart = 0;
 
                 for (int i = 0; i < instanceCount; i += pagerSize) {
                     while (pause) {
@@ -123,11 +128,13 @@ public class InstanceAktarim implements Aktarim {
 
                     instances.removeAll(instances);
 
-                    ResultSet rs = DatabaseOperations.getInstanceTable(tip, 0, pagerSize);//i, i + pagerSize
+                    ResultSet rs = DatabaseOperations.getInstanceTable(tip, pagerStart, pagerStart + pagerSize);//i, i + pagerSize
                     //tablodaki her kayit icin nesne olustur hex degerini hesapla listeye ekle
                     while (rs.next()) {
                         try {
                             Instance instance = new Instance(rs.getLong("pk"), rs.getString("sop_cuid"), rs.getString("sop_iuid"), rs.getInt("inst_no"), rs.getInt("num_frames"), -1/*rs.getInt("Rows")*/, -1/*rs.getInt("Columns")*/, rs.getString("storage_path"));
+                            //System.out.println(instance.getPk());
+
                             File f = new File(baseFilePath + instance.getStorage_path().replaceAll("/", "\\\\"));
                             if (f.exists()) {
                                 // System.out.println(f.getAbsolutePath());
@@ -135,7 +142,9 @@ public class InstanceAktarim implements Aktarim {
                                 String blob = "0x" + utils.bytesToHex(utils.attributesToByteArray(read));
                                 instance.setBlob(blob);
                                 instances.add(instance);
+
                             } else {
+
                                 try {
                                     utils.appendLog(logFileName, "**************************");
                                     utils.appendLog(logFileName, "<InstanceAktarim" + dateFormat.format(new Date()) + "> " + "DOSYA BULUNAMADI ->" + baseFilePath + instance.getStorage_path().replaceAll("/", "\\\\"));
@@ -144,7 +153,6 @@ public class InstanceAktarim implements Aktarim {
                                 } catch (Exception e) {
                                 }
                             }
-
                         } catch (Exception e) {
                             e.printStackTrace();
                             try {
@@ -155,6 +163,15 @@ public class InstanceAktarim implements Aktarim {
                             } catch (Exception e1) {
                             }
                         }
+                    }
+
+                    int debug = pagerStart;
+                    pagerStart += (int) (pagerSize - instances.size());
+                    if (debug != pagerStart) {
+                        System.out.println("instances: debugPagerStart:" + debug);
+                        System.out.println("instances: PagerStart:" + pagerStart);
+                        System.out.println("instances: getTable(from,to):" + pagerStart + "," + (pagerStart + pagerSize));
+
                     }
                     // Listeyi dolas dicomAttrs tablosuna dicomattrsPkStart dan baslayarak ekle ve degeri arttır.
                     // Sonra dicomAttrs'ın pk sını patient tablosundaki dicomAttrsFk ya yaz
@@ -182,7 +199,7 @@ public class InstanceAktarim implements Aktarim {
                 utils.appendLog(logFileName + "_TIME", "StartTime " + startTime);
                 utils.appendLog(logFileName + "_TIME", "FinishTime " + System.currentTimeMillis());
                 utils.appendLog(logFileName + "_TIME", "Total " + utils.convertMilisecondToTime(System.currentTimeMillis() - startTime));
-              
+
             } catch (SQLException ex) {
                 Logger.getLogger(PatientAktarim.class.getName()).log(Level.SEVERE, null, ex);
             } catch (InterruptedException ex) {
